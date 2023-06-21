@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\CatController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ShelterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::apiResource(
+    'shelters',
+    ShelterController::class,
+);
+
+Route::apiResource(
+    'employees',
+    EmployeeController::class,
+);
+
+Route::apiResource(
+    'cats',
+    CatController::class,
+);
